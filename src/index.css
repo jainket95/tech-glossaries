@@ -1,0 +1,225 @@
+@import "tailwindcss";
+
+/* Design system unified from Backend System Design: same background, ink,
+   rule, and accent colors, and the same Fraunces/DM Sans/JetBrains Mono
+   type stack. Only the light theme was retinted this way — PM's dark theme
+   below is left exactly as it was, since BE has no dark palette to copy.
+   Dark is opt-in only, via PM's theme toggle setting [data-theme="dark"] on
+   <html> (see src/courses/pm/store/ui.ts) — there is deliberately no OS
+   `prefers-color-scheme` auto-dark here, since three of the four courses
+   (be/fe/design) are light-only and have no dark palette to switch to. */
+@theme {
+  --font-serif: "Fraunces", "Iowan Old Style", "Palatino", Georgia, serif;
+  --font-sans: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", "SF Mono", "Menlo", "Consolas", monospace;
+}
+
+:root {
+  --bg: #f4f6f8;
+  --bg-raised: #eaeef2;
+  --bg-sunken: #e8edf1;
+  --text: #14181d;
+  --text-dim: #38414c;
+  --text-faint: #66717e;
+  --border: #d3dae1;
+  --border-strong: #a9b4c0;
+  --accent: #1d5b8f;
+  --accent-dim: #1d5b8f1a;
+  --accent-text: #1d5b8f;
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --bg: #121211;
+  --bg-raised: #191917;
+  --bg-sunken: #0c0c0b;
+  --text: #e9e7e1;
+  --text-dim: #a3a099;
+  --text-faint: #6b675f;
+  --border: #2c2b27;
+  --border-strong: #3c3a35;
+  --accent: #e3703f;
+  --accent-dim: #e3703f26;
+  --accent-text: #f0925f;
+  color-scheme: dark;
+}
+
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  font-size: 15px;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-serif);
+}
+
+#root {
+  min-height: 100svh;
+}
+
+.font-mono-term {
+  font-family: var(--font-mono);
+  letter-spacing: -0.01em;
+}
+
+.term-chip {
+  font-family: var(--font-mono);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-decoration-color: var(--text-faint);
+  text-underline-offset: 3px;
+  color: var(--accent-text);
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-size: inherit;
+}
+
+.term-chip:hover {
+  text-decoration-color: var(--accent-text);
+}
+
+.prose-lesson {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+.prose-lesson p {
+  margin: 0 0 1em;
+}
+
+.prose-lesson strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.prose-lesson ul,
+.prose-lesson ol {
+  margin: 0 0 1em;
+  padding-left: 1.4em;
+}
+
+.prose-lesson li {
+  margin: 0.25em 0;
+}
+
+.prose-lesson code {
+  font-family: var(--font-mono);
+  background: var(--bg-sunken);
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+  font-size: 0.88em;
+}
+
+.prose-lesson h3 {
+  font-size: 0.98rem;
+  font-weight: 600;
+  margin: 1.4em 0 0.5em;
+  color: var(--text);
+}
+
+.prose-lesson blockquote {
+  border-left: 3px solid var(--accent);
+  background: var(--accent-dim);
+  margin: 1em 0;
+  padding: 0.7em 1em;
+  border-radius: 0 6px 6px 0;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+.prose-lesson blockquote p {
+  margin: 0;
+}
+.prose-lesson blockquote p + p {
+  margin-top: 0.4em;
+}
+.prose-lesson blockquote > p:first-child > strong:first-child {
+  color: var(--accent-text);
+  text-transform: uppercase;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  margin-right: 0.35em;
+}
+
+.prose-lesson table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+  font-size: 0.88rem;
+}
+.prose-lesson th,
+.prose-lesson td {
+  text-align: left;
+  padding: 0.5em 0.65em;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.prose-lesson th {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-faint);
+  border-bottom: 2px solid var(--border-strong);
+}
+
+.prose-lesson .mermaid-diagram {
+  margin: 1.4em 0;
+  padding: 1.1em;
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow-x: auto;
+  display: flex;
+  justify-content: center;
+}
+.prose-lesson .mermaid-diagram svg {
+  max-width: 100%;
+  height: auto;
+}
+.prose-lesson .mermaid-error {
+  margin: 1em 0;
+  padding: 0.8em 1em;
+  background: var(--bg-raised);
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  font-size: 0.78rem;
+  color: var(--text-faint);
+  white-space: pre-wrap;
+}
+
+::selection {
+  background: var(--accent-dim);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 6px;
+}

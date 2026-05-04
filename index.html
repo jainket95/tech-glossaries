@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=JetBrains+Mono:wght@400;500;700&family=DM+Sans:opsz,wght@9..40,300..700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Master System Design and Product Management Glossaries</title>
+  </head>
+  <body>
+    <!--
+      App default is light (see src/index.css). PM is the only course with a
+      dark palette, and it's opt-in via localStorage. This pre-paint script
+      only applies on /pm routes so a hard refresh into PM with dark
+      selected doesn't flash light before React mounts — it never touches
+      the landing page or any other course.
+    -->
+    <script>
+      try {
+        if (location.pathname.indexOf('/pm') === 0) {
+          var s = JSON.parse(localStorage.getItem('pm-for-engineers-ui'));
+          var t = s && s.state && s.state.theme;
+          if (t === 'system') {
+            t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          }
+          if (t === 'dark' || t === 'light') {
+            document.documentElement.setAttribute('data-theme', t);
+          }
+        }
+      } catch (e) {}
+    </script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
