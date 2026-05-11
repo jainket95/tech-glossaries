@@ -10,4 +10,12 @@ export type CourseMeta = {
 // (e.g. UI/UX for senior development): create src/courses/<id>/, export a
 // route factory from its routes.tsx, wire that factory into App.tsx, and
 // add one entry here.
-export const courses: CourseMeta[] = [];
+export const courses: CourseMeta[] = [
+  {
+    id: 'pm',
+    title: 'PM for Engineers',
+    tagline: 'Product vocabulary and leverage plays for people who ship code.',
+    accent: '#1d5b8f',
+    path: '/pm',
+  },
+];
