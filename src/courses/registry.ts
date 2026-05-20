@@ -18,4 +18,12 @@ export const courses: CourseMeta[] = [
     accent: '#1d5b8f',
     path: '/pm',
   },
+  {
+    id: 'be',
+    title: 'Backend System Design',
+    tagline:
+      'APIs, databases, caching, queues, distributed systems — every topic framed around its tradeoffs.',
+    accent: '#1d5b8f',
+    path: '/be',
+  },
 ];

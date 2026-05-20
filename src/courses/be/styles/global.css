@@ -1,0 +1,712 @@
+/* Namespaced under .course-be so this can coexist with the fe course's
+   near-identical stylesheet and the shell's own styles in one bundle.
+   Original rules targeted :root/html/body/a directly; those are rescoped
+   to .course-be (the root element rendered by this course's Layout). */
+
+.course-be {
+  --bg: #f4f6f8;
+  --bg-card: #eaeef2;
+  --bg-sidebar: #e8edf1;
+  --ink: #14181d;
+  --ink-soft: #38414c;
+  --ink-mute: #66717e;
+  --rule: #d3dae1;
+  --rule-strong: #a9b4c0;
+  --accent: #1d5b8f;
+  --accent-soft: #cbdcec;
+  --code-bg: #e3e8ed;
+  --code-ink: #1a2129;
+
+  --serif: "Fraunces", "Iowan Old Style", "Palatino", Georgia, serif;
+  --sans: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", "SF Mono", "Menlo", "Consolas", monospace;
+
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.course-be * {
+  box-sizing: border-box;
+}
+
+.course-be a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent-soft);
+  transition: border-color 0.15s ease;
+}
+.course-be a:hover {
+  border-bottom-color: var(--accent);
+}
+
+/* ─── Layout ─────────────────────────────────────── */
+.course-be.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.course-be .topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.9rem 1.5rem;
+  background: var(--bg);
+  border-bottom: 1px solid var(--rule);
+}
+.course-be .topbar__menu {
+  display: none;
+  background: none;
+  border: 1px solid var(--rule-strong);
+  padding: 0.3rem 0.6rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 3px;
+  color: var(--ink);
+}
+.course-be .topbar__brand {
+  display: flex;
+  align-items: baseline;
+  gap: 0.55rem;
+  color: var(--ink);
+  border-bottom: none;
+}
+.course-be .topbar__mark {
+  font-size: 1.1rem;
+  color: var(--accent);
+}
+.course-be .topbar__title {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
+}
+.course-be .topbar__sub {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--ink-mute);
+  font-size: 0.95rem;
+}
+.course-be .topbar__github {
+  margin-left: auto;
+  font-size: 0.85rem;
+  font-family: var(--mono);
+  color: var(--ink-soft);
+  border-bottom: none;
+}
+
+.course-be .shell {
+  display: flex;
+  flex: 1;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ─── Sidebar ────────────────────────────────────── */
+.course-be .sidebar {
+  width: 320px;
+  flex-shrink: 0;
+  padding: 2rem 1.25rem 4rem 1.5rem;
+  border-right: 1px solid var(--rule);
+  position: sticky;
+  top: 60px;
+  height: calc(100vh - 60px);
+  overflow-y: auto;
+}
+.course-be .sidebar__label {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--ink-mute);
+  margin-bottom: 1rem;
+}
+.course-be .sidebar__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.course-be .sidebar__list li {
+  margin-bottom: 0.25rem;
+}
+.course-be .sidebar__link {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  padding: 0.55rem 0.6rem;
+  border-radius: 4px;
+  color: var(--ink);
+  border-bottom: none;
+  transition: background 0.15s ease;
+}
+.course-be .sidebar__link:hover {
+  background: var(--bg-card);
+}
+.course-be .sidebar__link--active {
+  background: var(--bg-card);
+}
+.course-be .sidebar__link--active .sidebar__title {
+  color: var(--accent);
+}
+.course-be .sidebar__num {
+  font-family: var(--mono);
+  color: var(--ink-mute);
+  font-size: 0.75rem;
+  padding-top: 3px;
+  min-width: 22px;
+}
+.course-be .sidebar__title {
+  display: block;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.3;
+  letter-spacing: -0.005em;
+}
+.course-be .sidebar__tag {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--ink-mute);
+  margin-top: 2px;
+  font-style: italic;
+  font-family: var(--serif);
+}
+.course-be .sidebar__footnote {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--ink-mute);
+}
+
+/* ─── Content ────────────────────────────────────── */
+.course-be .content {
+  flex: 1;
+  padding: 3rem 4rem 6rem;
+  max-width: calc(100% - 320px);
+}
+
+/* ─── Home ───────────────────────────────────────── */
+.course-be .home {
+  max-width: 760px;
+}
+.course-be .home__hero {
+  margin-bottom: 4rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--rule);
+}
+.course-be .home__eyebrow {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 1.5rem;
+}
+.course-be .home__title {
+  font-family: var(--serif);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  margin: 0 0 1.5rem;
+}
+.course-be .home__title em {
+  font-style: italic;
+  color: var(--accent);
+}
+.course-be .home__lede {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  max-width: 60ch;
+}
+.course-be .home__cta {
+  margin-top: 2.5rem;
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.course-be .btn {
+  display: inline-block;
+  padding: 0.7rem 1.2rem;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  border: 1px solid var(--rule-strong);
+  color: var(--ink);
+  border-radius: 3px;
+  transition: all 0.15s ease;
+  border-bottom: 1px solid var(--rule-strong);
+}
+.course-be .btn:hover {
+  background: var(--bg-card);
+  border-color: var(--ink);
+}
+.course-be .btn--primary {
+  background: var(--ink);
+  color: var(--bg);
+  border-color: var(--ink);
+}
+.course-be .btn--primary:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
+}
+
+/* Used by courses whose Home page groups chapters into labeled sections
+   (currently sysdesign, grouping by the source question bank's own
+   Part 1/2/3) — harmless unused CSS for courses with a flat .home__grid. */
+.course-be .home__grid-section {
+  margin-bottom: 2.5rem;
+}
+.course-be .home__grid-heading {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-mute);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+.course-be .home__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+.course-be .card {
+  display: block;
+  padding: 1.5rem 1.4rem;
+  border: 1px solid var(--rule);
+  background: var(--bg-card);
+  border-radius: 4px;
+  color: var(--ink);
+  border-bottom: 1px solid var(--rule);
+  transition: all 0.2s ease;
+}
+.course-be .card:hover {
+  border-color: var(--ink);
+  transform: translateY(-2px);
+}
+.course-be .card__num {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--ink-mute);
+  margin-bottom: 0.5rem;
+}
+.course-be .card__title {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+  letter-spacing: -0.01em;
+}
+.course-be .card__tag {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--ink-mute);
+}
+.course-be .home__foot {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--rule);
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+.course-be .home__foot em {
+  color: var(--accent);
+  font-style: italic;
+}
+
+/* ─── Chapter ────────────────────────────────────── */
+.course-be .chapter {
+  max-width: 760px;
+}
+.course-be .chapter__head {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--rule);
+}
+.course-be .chapter__num {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 1rem;
+}
+.course-be .chapter__title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  margin: 0 0 0.75rem;
+}
+.course-be .chapter__tag {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--ink-mute);
+  margin: 0;
+}
+
+.course-be .chapter__nav {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.course-be .chapter__navlink {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  color: var(--ink);
+  border-bottom: 1px solid var(--rule);
+  max-width: 48%;
+  transition: all 0.15s ease;
+}
+.course-be .chapter__navlink:hover {
+  border-color: var(--ink);
+}
+.course-be .chapter__navlink--right {
+  text-align: right;
+  margin-left: auto;
+}
+.course-be .chapter__navdir {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--ink-mute);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.3rem;
+}
+.course-be .chapter__navtitle {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+/* ─── Markdown rendering ────────────────────────── */
+.course-be .markdown h2 {
+  font-family: var(--serif);
+  font-size: 1.85rem;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  margin: 3.5rem 0 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  line-height: 1.2;
+}
+.course-be .markdown h2:first-child {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
+}
+.course-be .markdown h3 {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 500;
+  margin: 2.25rem 0 0.6rem;
+  letter-spacing: -0.01em;
+}
+.course-be .markdown h4 {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 1.5rem 0 0.4rem;
+  color: var(--ink-soft);
+}
+.course-be .markdown h2 a,
+.course-be .markdown h3 a,
+.course-be .markdown h4 a {
+  color: inherit;
+  border-bottom: none;
+}
+.course-be .markdown p {
+  margin: 0 0 1.1rem;
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+.course-be .markdown ul,
+.course-be .markdown ol {
+  margin: 0 0 1.2rem;
+  padding-left: 1.4rem;
+}
+.course-be .markdown li {
+  margin-bottom: 0.45rem;
+  line-height: 1.65;
+}
+.course-be .markdown li > ul,
+.course-be .markdown li > ol {
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
+}
+.course-be .markdown code {
+  font-family: var(--mono);
+  font-size: 0.88em;
+  background: var(--code-bg);
+  padding: 0.1em 0.35em;
+  border-radius: 2px;
+  color: var(--code-ink);
+}
+.course-be .markdown pre {
+  background: var(--ink);
+  color: #e8edf2;
+  padding: 1.15rem 1.3rem;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  font-size: 0.85rem;
+  line-height: 1.55;
+}
+.course-be .markdown pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+/* Blockquotes render as callout/pointer boxes, not italic pull-quotes —
+   used for TL;DRs, key takeaways, and "say this" scripts so a reader can
+   scan a chapter's boxed callouts alone and get the gist fast. A leading
+   `**Label:**` in the quote (e.g. "> **TL;DR:** ...") becomes a small
+   uppercase tag via the strong:first-child rule below. */
+.course-be .markdown blockquote {
+  border-left: 3px solid var(--accent);
+  background: var(--accent-soft);
+  margin: 1.5rem 0;
+  padding: 0.85rem 1.2rem;
+  border-radius: 0 6px 6px 0;
+  font-family: var(--sans);
+  font-style: normal;
+  color: var(--ink);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.course-be .markdown blockquote p {
+  margin: 0;
+}
+.course-be .markdown blockquote p + p {
+  margin-top: 0.5rem;
+}
+.course-be .markdown blockquote > p:first-child > strong:first-child {
+  color: var(--accent);
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.07em;
+  margin-right: 0.35rem;
+}
+.course-be .markdown strong {
+  font-weight: 600;
+  color: var(--ink);
+}
+.course-be .markdown em {
+  font-style: italic;
+}
+.course-be .markdown li::marker {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ─── Mermaid flow diagrams ─────────────────────── */
+.course-be .mermaid-diagram {
+  margin: 1.85rem 0;
+  padding: 1.35rem;
+  background: var(--bg-card);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  overflow-x: auto;
+  display: flex;
+  justify-content: center;
+}
+.course-be .mermaid-diagram svg {
+  max-width: 100%;
+  height: auto;
+}
+.course-be .mermaid-error {
+  margin: 1.5rem 0;
+  padding: 1rem 1.2rem;
+  background: var(--bg-card);
+  border: 1px solid var(--rule-strong);
+  border-radius: 6px;
+  font-size: 0.82rem;
+  color: var(--ink-mute);
+  white-space: pre-wrap;
+}
+.course-be .markdown table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.92rem;
+}
+.course-be .markdown th,
+.course-be .markdown td {
+  text-align: left;
+  padding: 0.65rem 0.75rem;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+.course-be .markdown th {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-mute);
+  border-bottom: 2px solid var(--rule-strong);
+}
+.course-be .markdown hr {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 2.5rem 0;
+}
+.course-be .markdown a {
+  color: var(--accent);
+  border-bottom: 1px solid var(--accent-soft);
+}
+
+/* ─── Glossary term chips + drawer ──────────────────
+   The first mention of a known glossary term in a chapter is swapped
+   (via remarkTermLinks, src/glossary/) for a .term-chip button instead of
+   plain text or a real <a>. Clicking it opens .term-drawer, a fixed
+   slide-in panel — same interaction pattern as PM's TermChip/TermDrawer,
+   reimplemented in plain CSS here since be/fe don't use Tailwind. */
+.course-be .term-chip {
+  font: inherit;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: none;
+  border-radius: 3px;
+  padding: 0.05em 0.4em;
+  cursor: pointer;
+  font-weight: 500;
+}
+.course-be .term-chip:hover {
+  background: var(--rule-strong);
+}
+.course-be .term-drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  justify-content: flex-end;
+}
+.course-be .term-drawer__overlay {
+  position: absolute;
+  inset: 0;
+  border: none;
+  background: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+.course-be .term-drawer__panel {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  max-width: 26rem;
+  overflow-y: auto;
+  padding: 1.75rem;
+  background: var(--bg-card);
+  border-left: 1px solid var(--rule);
+}
+.course-be .term-drawer__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+.course-be .term-drawer__title {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+.course-be .term-drawer__aka {
+  margin-top: 0.2rem;
+  font-size: 0.78rem;
+  color: var(--ink-mute);
+}
+.course-be .term-drawer__close {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  background: none;
+  border: 1px solid var(--rule-strong);
+  border-radius: 3px;
+  padding: 0.2rem 0.5rem;
+  cursor: pointer;
+}
+.course-be .term-drawer__oneliner {
+  margin-top: 1rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+.course-be .term-drawer__full {
+  margin-top: 0.6rem;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+.course-be .term-drawer__related {
+  margin-top: 1.5rem;
+}
+.course-be .term-drawer__label {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-mute);
+  margin-bottom: 0.5rem;
+}
+.course-be .term-drawer__related-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+/* ─── Responsive ─────────────────────────────────── */
+@media (max-width: 900px) {
+  .course-be .topbar__menu {
+    display: inline-block;
+  }
+  .course-be .sidebar {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    transform: translateX(-100%);
+    transition: transform 0.2s ease;
+    background: var(--bg-sidebar);
+    z-index: 40;
+    width: 300px;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+  }
+  .course-be .sidebar--open {
+    transform: translateX(0);
+  }
+  .course-be .content {
+    max-width: 100%;
+    padding: 2rem 1.5rem 4rem;
+  }
+  .course-be .topbar__sub {
+    display: none;
+  }
+}
