@@ -26,4 +26,11 @@ export const courses: CourseMeta[] = [
     accent: '#1d5b8f',
     path: '/be',
   },
+  {
+    id: 'fe',
+    title: 'Frontend System Design',
+    tagline: 'Rendering, performance, state, data, and the primitives shared with the backend.',
+    accent: '#1d5b8f',
+    path: '/fe',
+  },
 ];
