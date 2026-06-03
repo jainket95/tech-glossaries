@@ -33,4 +33,12 @@ export const courses: CourseMeta[] = [
     accent: '#1d5b8f',
     path: '/fe',
   },
+  {
+    id: 'design',
+    title: 'Design for Engineers',
+    tagline:
+      'UI/UX, design systems, and roughly 80% of a senior designer’s judgment, from a frontend engineer’s seat.',
+    accent: '#1d5b8f',
+    path: '/design',
+  },
 ];

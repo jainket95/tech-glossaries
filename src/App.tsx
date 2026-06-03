@@ -3,6 +3,7 @@ import { Home } from './routes/Home';
 import { pmRoutes } from './courses/pm/routes';
 import { beRoutes } from './courses/be/routes';
 import { feRoutes } from './courses/fe/routes';
+import { designRoutes } from './courses/design/routes';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         {pmRoutes()}
         {beRoutes()}
         {feRoutes()}
+        {designRoutes()}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
