@@ -41,4 +41,12 @@ export const courses: CourseMeta[] = [
     accent: '#1d5b8f',
     path: '/design',
   },
+  {
+    id: 'fde',
+    title: 'Forward Deployed Engineering',
+    tagline:
+      'Discovery, rapid prototyping, and shipping real systems inside someone else’s infrastructure — the fastest-growing role in enterprise software.',
+    accent: '#1d5b8f',
+    path: '/fde',
+  },
 ];
