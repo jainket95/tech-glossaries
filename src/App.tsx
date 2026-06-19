@@ -5,6 +5,7 @@ import { beRoutes } from './courses/be/routes';
 import { feRoutes } from './courses/fe/routes';
 import { designRoutes } from './courses/design/routes';
 import { fdeRoutes } from './courses/fde/routes';
+import { sysdesignRoutes } from './courses/sysdesign/routes';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         {feRoutes()}
         {designRoutes()}
         {fdeRoutes()}
+        {sysdesignRoutes()}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>

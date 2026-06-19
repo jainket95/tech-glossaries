@@ -49,4 +49,12 @@ export const courses: CourseMeta[] = [
     accent: '#1d5b8f',
     path: '/fde',
   },
+  {
+    id: 'sysdesign',
+    title: 'System Design Interview Solutions',
+    tagline:
+      '30 frontend system-design interview questions, each solved on two connected tracks: a RADIO frontend answer and a backend answer, wired together at the API contract.',
+    accent: '#1d5b8f',
+    path: '/system-design',
+  },
 ];
