@@ -317,6 +317,28 @@ export const terms: GlossaryTerm[] = [
     oneLiner: 'A compact rule (frequency, interval, end condition) describing an indefinitely-repeating event, expanded into concrete occurrences on demand.',
     full: 'Storing one row per future occurrence of an indefinitely-recurring event doesn\'t terminate; storing the rule and expanding it — client-side for the visible range, server-side for range queries — is the only approach that scales. Individual occurrence edits are represented as exceptions layered on top of the rule, never as mutations to the rule itself.',
   },
+
+  // Added while writing "Part 4 — Advanced Mechanisms" (the companion
+  // question-bank supplement) — promoted from "proposed" to real entries
+  // because both concepts are now genuinely reused across multiple
+  // questions, not one-off vocabulary.
+  {
+    id: 'atomic-compare-and-set',
+    term: 'Atomic compare-and-set',
+    aliases: ['compare-and-set', 'check-and-set', 'CAS'],
+    courses: ['be'],
+    oneLiner: 'A single indivisible read-and-write operation that eliminates the race window a separate check-then-write pair would have under concurrent access.',
+    full: 'Two requests for the same resource arriving microseconds apart must resolve to exactly one winner — a naive "check if available, then set" done as two separate operations has a real race window where both requests can read "available" before either writes. An atomic primitive (Redis `SET key value NX EX ttl`, or a Lua script for multi-key operations) checks and sets in one indivisible step, closing that window entirely.',
+    related: ['distributed-lock', 'inventory-hold'],
+  },
+  {
+    id: 'load-shedding',
+    term: 'Load shedding',
+    courses: ['be'],
+    oneLiner: 'Deliberately rejecting, queueing, or delaying a fraction of incoming work to protect a system\'s capacity to serve the rest.',
+    full: 'The alternative to accepting everything and letting the whole system degrade uniformly (and often catastrophically) under a traffic spike — shedding load early and explicitly (a queue, a waiting room, a fast "try again" rejection) keeps the system serving *some* requests well, rather than serving all requests badly or falling over entirely.',
+    related: ['backpressure'],
+  },
 ];
 
 const byId = new Map(terms.map((t) => [t.id, t]));

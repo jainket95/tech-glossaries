@@ -29,7 +29,7 @@ export default function ChapterView() {
     <article className="chapter">
       <div className="chapter__head">
         <div className="chapter__num">
-          Question {chapter.number} · {chapter.difficulty}
+          {chapter.number} · {chapter.difficulty}
         </div>
         <h1 className="chapter__title">{chapter.title}</h1>
         <p className="chapter__tag">{chapter.tagline}</p>

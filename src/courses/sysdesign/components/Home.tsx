@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { PART_LABELS, chaptersByPart, type Part } from "../lib/chapters";
 
-const PARTS: Part[] = ["components", "applications", "emerging"];
+const PARTS: Part[] = ["components", "applications", "emerging", "mechanisms"];
 
 export default function Home() {
   return (

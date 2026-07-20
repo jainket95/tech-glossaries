@@ -29,13 +29,22 @@ import seatBooking from '../content/seat-booking.md?raw';
 import infiniteScrollFeed from '../content/infinite-scroll-feed.md?raw';
 import fileUploadSharing from '../content/file-upload-sharing.md?raw';
 import calendarScheduling from '../content/calendar-scheduling.md?raw';
+import mechanismFieldGuide from '../content/mechanism-field-guide.md?raw';
+import flashSaleCheckout from '../content/flash-sale-checkout.md?raw';
+import liveCounterReactions from '../content/live-counter-reactions.md?raw';
+import presenceSystem from '../content/presence-system.md?raw';
+import liveCursors from '../content/live-cursors.md?raw';
+import offlineFirstSync from '../content/offline-first-sync.md?raw';
+import optimisticMutationsRollback from '../content/optimistic-mutations-rollback.md?raw';
+import rateLimitingDedup from '../content/rate-limiting-dedup.md?raw';
 
-export type Part = 'components' | 'applications' | 'emerging';
+export type Part = 'components' | 'applications' | 'emerging' | 'mechanisms';
 
 export const PART_LABELS: Record<Part, string> = {
   components: 'Part 1 · UI Component Design',
   applications: 'Part 2 · Full Application Design',
   emerging: 'Part 3 · Emerging Questions (2025-26)',
+  mechanisms: 'Part 4 · Advanced Mechanisms',
 };
 
 export type Chapter = {
@@ -320,6 +329,78 @@ export const chapters: Chapter[] = [
     part: 'emerging',
     difficulty: 'Medium-Hard',
     content: calendarScheduling,
+  },
+  {
+    slug: 'mechanism-field-guide',
+    number: '31',
+    title: 'Mechanism-Driven Questions: A Field Guide',
+    tagline: 'Six mechanism families, a repeatable attack pattern, and the consistency spectrum — read this before the rest of Part 4.',
+    part: 'mechanisms',
+    difficulty: 'Guide',
+    content: mechanismFieldGuide,
+  },
+  {
+    slug: 'flash-sale-checkout',
+    number: '32',
+    title: 'Flash-Sale / Limited-Drop Checkout',
+    tagline: 'Contention at 1000x scale — the queue and the atomic decrement are the whole interview, not the checkout form.',
+    part: 'mechanisms',
+    difficulty: 'Hard',
+    content: flashSaleCheckout,
+  },
+  {
+    slug: 'live-counter-reactions',
+    number: '33',
+    title: 'Live Counter / Reactions at Scale',
+    tagline: 'Batching, coalescing, and an honest eventual-consistency posture for a number a million people are watching.',
+    part: 'mechanisms',
+    difficulty: 'Medium-Hard',
+    content: liveCounterReactions,
+  },
+  {
+    slug: 'presence-system',
+    number: '34',
+    title: 'Presence System',
+    tagline: 'Heartbeats, TTL-driven expiry, and the O(N²) fan-out problem hiding behind a green dot.',
+    part: 'mechanisms',
+    difficulty: 'Medium-Hard',
+    content: presenceSystem,
+  },
+  {
+    slug: 'live-cursors',
+    number: '35',
+    title: 'Live Cursors / Multiplayer Pointers',
+    tagline: 'Moving 30 remote cursors smoothly without flooding the network or the render loop.',
+    part: 'mechanisms',
+    difficulty: 'Medium',
+    content: liveCursors,
+  },
+  {
+    slug: 'offline-first-sync',
+    number: '36',
+    title: 'Offline-First Sync',
+    tagline: 'Replaying an hour of offline edits onto whatever the server became in the meantime — correctly, exactly once.',
+    part: 'mechanisms',
+    difficulty: 'Hard',
+    content: offlineFirstSync,
+  },
+  {
+    slug: 'optimistic-mutations-rollback',
+    number: '37',
+    title: 'Optimistic Mutations with Rollback',
+    tagline: 'The generalized pattern behind every optimistic update in this course — and what a clean rollback actually restores.',
+    part: 'mechanisms',
+    difficulty: 'Medium-Hard',
+    content: optimisticMutationsRollback,
+  },
+  {
+    slug: 'rate-limiting-dedup',
+    number: '38',
+    title: 'Client-Side Rate Limiting / Request Dedup',
+    tagline: 'In-flight deduplication, cancellation, and backing off a 429 like a good citizen.',
+    part: 'mechanisms',
+    difficulty: 'Medium',
+    content: rateLimitingDedup,
   },
 ];
 
