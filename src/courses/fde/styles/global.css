@@ -589,6 +589,19 @@
   max-width: 100%;
   height: auto;
 }
+/* Mermaid's own embedded <style> (injected inside the SVG, ID-scoped —
+   e.g. "#mmd-xyz .edgeLabel") sets an edge label's *text* color equal to
+   its *background* color (both come from the same edgeLabelBackground
+   theme variable in mermaid's template), making "-->|Yes|"-style labels
+   invisible regardless of what colors Mermaid.tsx passes in. An ID
+   selector can't be out-specificity'd by an external class selector, so
+   !important is the correct, standard way to override an embedded
+   same-document <style> block here — not a workaround to avoid. */
+.course-fde .mermaid-diagram .edgeLabel,
+.course-fde .mermaid-diagram .edgeLabel p,
+.course-fde .mermaid-diagram .edgeLabel span {
+  color: var(--ink) !important;
+}
 .course-fde .mermaid-error {
   margin: 1.5rem 0;
   padding: 1rem 1.2rem;

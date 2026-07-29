@@ -206,8 +206,21 @@ h3 {
   white-space: pre-wrap;
 }
 
+/* Mermaid's own embedded <style> (injected inside the SVG, ID-scoped) sets
+   an edge label's text color equal to its background color — see the
+   identical override in be/fe/design/fde/sysdesign's global.css for the
+   full explanation. var(--text) here (not --ink, which doesn't exist in
+   PM's token set) tracks PM's actual light/dark theme correctly, since
+   Mermaid.tsx's dark-variant colors are chosen to match this same value. */
+.prose-lesson .mermaid-diagram .edgeLabel,
+.prose-lesson .mermaid-diagram .edgeLabel p,
+.prose-lesson .mermaid-diagram .edgeLabel span {
+  color: var(--text) !important;
+}
+
 ::selection {
   background: var(--accent-dim);
+  color: var(--text);
 }
 
 ::-webkit-scrollbar {
