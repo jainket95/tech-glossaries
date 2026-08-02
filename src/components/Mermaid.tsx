@@ -92,11 +92,23 @@ export function Mermaid({ chart }: { chart: string }) {
 
   useEffect(() => {
     let cancelled = false;
-    init(dark);
-    mermaid
-      .render(`mmd-${id}-${dark ? 'd' : 'l'}`, chart.trim())
+    // The page loads DM Sans with font-display: swap (index.html), so on a
+    // cold load mermaid can measure + box a node's label in the fallback
+    // system font, then have DM Sans swap in wider/taller a moment later —
+    // the text overflows the now-too-small box and gets clipped by the
+    // SVG's default overflow: hidden (visible as text cropped at the
+    // bottom/right of a node). Waiting for the real font before rendering
+    // means mermaid always measures with final glyph metrics.
+    const fontsReady =
+      typeof document !== 'undefined' && document.fonts ? document.fonts.ready : Promise.resolve();
+    fontsReady
+      .then(() => {
+        if (cancelled) return;
+        init(dark);
+        return mermaid.render(`mmd-${id}-${dark ? 'd' : 'l'}`, chart.trim());
+      })
       .then((result) => {
-        if (!cancelled && ref.current) ref.current.innerHTML = result.svg;
+        if (!cancelled && result && ref.current) ref.current.innerHTML = result.svg;
       })
       .catch((err) => {
         if (!cancelled) setError(err instanceof Error ? err.message : String(err));
