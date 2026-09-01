@@ -1,5 +1,6 @@
-// Shared glossary for be/fe (and any future react-markdown-based course that
-// opts in). Distinct from PM's own Term type in src/courses/pm/types.ts —
+// Shared glossary for be/fe. Also consumed by sysdesign, which passes the
+// be/fe union to termsForCourses() rather than adding its own course tag.
+// Distinct from PM's own Term type in src/courses/pm/types.ts —
 // PM's terms are tied to PM's module/lesson schema and rendered through its
 // own hand-rolled Prose.tsx; this registry is course-agnostic and rendered
 // via the remark plugin in src/glossary/remarkTermLinks.ts.

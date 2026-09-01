@@ -6,8 +6,9 @@
    below is left exactly as it was, since BE has no dark palette to copy.
    Dark is opt-in only, via PM's theme toggle setting [data-theme="dark"] on
    <html> (see src/courses/pm/store/ui.ts) — there is deliberately no OS
-   `prefers-color-scheme` auto-dark here, since three of the four courses
-   (be/fe/design) are light-only and have no dark palette to switch to. */
+   `prefers-color-scheme` auto-dark here, since five of the six courses
+   (be/fe/design/fde/sysdesign) are light-only and have no dark palette to
+   switch to. */
 @theme {
   --font-serif: "Fraunces", "Iowan Old Style", "Palatino", Georgia, serif;
   --font-sans: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
