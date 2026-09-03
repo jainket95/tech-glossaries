@@ -2,6 +2,7 @@
 
 - **Real-world analog:** Amazon, eBay — product listing, search, checkout.
 - **Difficulty:** Medium · **Asked at:** Amazon (flagship), GreatFrontEnd bank.
+- **Backend counterpart:** [E-Commerce Inventory Management](/backend-interviews/c/inventory-management) covers the reserve-then-confirm stock model and multi-channel sync behind this chapter's product/checkout UI.
 - The core challenge isn't rendering a product page — it's rendering *the same* product page well for three different audiences at once: a search engine crawler that never runs JavaScript, a first-time visitor on a cold cache who needs it fast, and a returning shopper whose cart and personalization have to survive across devices and sessions.
 
 ## Clarifying Questions & Requirements

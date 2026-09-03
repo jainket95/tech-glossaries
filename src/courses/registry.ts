@@ -57,4 +57,12 @@ export const courses: CourseMeta[] = [
     accent: '#1d5b8f',
     path: '/system-design',
   },
+  {
+    id: 'besd',
+    title: 'Backend Interview Solutions',
+    tagline:
+      '36 classic backend system-design questions, graded Fresher/SDE-1 through Senior/SDE-3, each worked end-to-end with the tradeoffs defended out loud.',
+    accent: '#1d5b8f',
+    path: '/backend-interviews',
+  },
 ];

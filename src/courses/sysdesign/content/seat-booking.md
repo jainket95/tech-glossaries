@@ -2,6 +2,7 @@
 
 - **Real-world analog:** BookMyShow, airline seat maps, event ticketing.
 - **Difficulty:** Medium-Hard · **Asked at:** ticketing, travel, and event platforms.
+- **Backend counterpart:** [Ticket Booking with Seat Locking](/backend-interviews/c/ticket-booking) picks up past this chapter's atomic hold mechanism to cover admission control at true on-sale scale.
 - The core challenge is almost entirely a backend concurrency problem wearing a frontend UI: many users can click the same seat within milliseconds of each other, and exactly one of them can actually get it — the frontend's job is mostly to reflect that outcome honestly and quickly, not to decide it.
 
 ## Clarifying Questions & Requirements

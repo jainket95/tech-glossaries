@@ -2,6 +2,7 @@
 
 - **Real-world analog:** Google Docs, Notion — real-time multi-user document editing.
 - **Difficulty:** Hard · **Asked at:** Google, Meta, Notion-style companies.
+- **Backend counterpart:** [Collaborative Document Editing](/backend-interviews/c/collaborative-docs) covers the server-authoritative sequencing and op-log persistence behind the CRDT/OT merge this chapter integrates client-side.
 - The core challenge is that two people can type in the same paragraph at the same instant, on two different machines, with no way to lock the document without destroying the entire point of "collaborative" — the design has to make concurrent edits converge to the same result on every client without ever blocking either user's typing.
 
 ## Clarifying Questions & Requirements

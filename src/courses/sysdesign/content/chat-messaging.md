@@ -2,6 +2,7 @@
 
 - **Real-world analog:** Messenger, Slack, WhatsApp — real-time 1:1 and group chat.
 - **Difficulty:** Hard · **Asked at:** Meta, Slack-style companies, GreatFrontEnd bank.
+- **Backend counterpart:** [Real-Time Chat (Slack)](/backend-interviews/c/team-chat) covers per-channel sequencing and fan-out; [Distributed Messaging (WhatsApp / Kafka)](/backend-interviews/c/distributed-messaging) covers the underlying partitioned, replicated log infrastructure at global scale.
 - The core challenge isn't sending a message — it's making the UI feel instant while the network is slow, unreliable, or briefly gone, and doing that without ever letting two people disagree about what was actually said or in what order.
 
 ## Clarifying Questions & Requirements

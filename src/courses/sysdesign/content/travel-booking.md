@@ -2,6 +2,7 @@
 
 - **Real-world analog:** Airbnb, Expedia — search, listings, date/seat selection, booking.
 - **Difficulty:** Medium · **Asked at:** Airbnb, GreatFrontEnd bank.
+- **Backend counterpart:** [Hotel Booking System](/backend-interviews/c/hotel-booking) covers the per-night inventory model and atomic date-range holds behind this chapter's availability calendar.
 - The core challenge isn't showing a list of listings — it's keeping a map, a list, and an availability calendar in sync with each other while the underlying inventory (a specific date range on a specific listing) can be claimed by someone else at any moment, including the moment between "looks available" and "confirm booking."
 
 ## Clarifying Questions & Requirements

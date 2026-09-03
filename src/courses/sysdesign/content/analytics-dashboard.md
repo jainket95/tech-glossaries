@@ -2,6 +2,7 @@
 
 - **Real-world analog:** Live metrics dashboards (Datadog/Grafana-style) for thousands of concurrent viewers.
 - **Difficulty:** Medium-Hard · **Asked at:** Amazon, data-platform & observability companies.
+- **Backend counterpart:** [Scalable Logging & Monitoring](/backend-interviews/c/logging-monitoring) covers the ingestion pipeline, cardinality guardrails, and downsampling behind the data this chapter's widgets render.
 - The core challenge isn't drawing a chart — it's rendering many independent, continuously-updating widgets fed by a genuinely high-frequency data stream, without either flooding the browser's main thread with updates or drowning the backend in per-second requests from thousands of simultaneously-open dashboards.
 
 ## Clarifying Questions & Requirements

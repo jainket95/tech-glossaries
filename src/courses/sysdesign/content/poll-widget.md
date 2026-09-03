@@ -2,6 +2,7 @@
 
 - **Real-world analog:** Twitter polls, embedded surveys.
 - **Difficulty:** Medium · **Asked at:** GreatFrontEnd bank, ad-tech/media companies.
+- **Backend counterpart:** [Polling / Voting App](/backend-interviews/c/polling-voting) covers the database-constraint mechanism that makes double-voting impossible server-side.
 - The core challenge is unusual for a component question: it has to run correctly inside *someone else's* page, under constraints (sandboxing, bundle size, no assumptions about the host page's CSS/JS) that a normal first-party component never has to deal with.
 
 ## Clarifying Questions & Requirements

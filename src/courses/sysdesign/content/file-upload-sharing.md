@@ -2,6 +2,7 @@
 
 - **Real-world analog:** Dropbox, Google Drive — large-file upload and cross-device sync.
 - **Difficulty:** Medium-Hard · **Asked at:** Google, Dropbox-style companies, Amazon.
+- **Backend counterpart:** [Distributed File Storage](/backend-interviews/c/distributed-file-storage) covers the block replication/erasure coding and metadata service behind durable storage at scale.
 - The core challenge is uploading files large enough (and on connections unreliable enough) that a single request can't be trusted to complete — and doing so with resumability, real progress, and a file tree that stays consistent across devices syncing independently.
 
 ## Clarifying Questions & Requirements

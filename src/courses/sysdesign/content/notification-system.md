@@ -2,6 +2,7 @@
 
 - **Real-world analog:** in-app + push notifications, as in Meta's or LinkedIn's notification bell.
 - **Difficulty:** Medium · **Asked at:** Meta, most product companies.
+- **Backend counterpart:** [Notification System](/backend-interviews/c/notification-service) covers the multi-channel fan-out, provider integration, and idempotent delivery this chapter's UI sits on top of.
 - The core challenge is keeping a badge count and a notification list *correct and consistent* across an in-app real-time surface, a background push notification, and read/unread state — without over-notifying and without letting the count drift from reality.
 
 ## Clarifying Questions & Requirements

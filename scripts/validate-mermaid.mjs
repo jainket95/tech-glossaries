@@ -20,7 +20,7 @@ const mermaid = (await import('mermaid')).default;
 mermaid.initialize({ startOnLoad: false, theme: 'base' });
 
 const courses = process.argv.slice(2);
-if (courses.length === 0) courses.push('be', 'fe', 'design', 'fde');
+if (courses.length === 0) courses.push('be', 'fe', 'design', 'fde', 'sysdesign', 'besd');
 
 let total = 0;
 let failed = 0;

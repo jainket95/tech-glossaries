@@ -2,6 +2,7 @@
 
 - **Real-world analog:** Netflix, YouTube — a video-on-demand platform frontend.
 - **Difficulty:** Hard · **Asked at:** Netflix, Google/YouTube, GreatFrontEnd bank.
+- **Backend counterpart:** [Video Streaming Platform](/backend-interviews/c/video-platform) covers the transcoding pipeline, storage tiering, and multi-CDN distribution that produces the variants this chapter's player adapts between.
 - The core challenge isn't playing a video file — it's continuously choosing, mid-playback, the right quality level for a connection that's constantly changing, without the viewer ever seeing a stall, and doing that across a UI that also has to browse, preview, and resume thousands of other titles efficiently.
 
 ## Clarifying Questions & Requirements

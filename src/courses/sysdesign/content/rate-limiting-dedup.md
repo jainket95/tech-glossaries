@@ -2,6 +2,7 @@
 
 - **Real-world analog:** API-heavy dashboards, autocomplete-heavy products, Stripe-style SDKs.
 - **Difficulty:** Medium · **Mechanism family:** Resource control — bounding outbound work from the client.
+- **Backend counterpart:** [Rate Limiter](/backend-interviews/c/rate-limiter) covers server-side enforcement (this chapter is explicitly scoped to client-side cooperative behavior only); [Multi-Datacenter Rate Limiter](/backend-interviews/c/global-rate-limiter) extends it across regions.
 - The core challenge isn't calling an API — it's making sure the client never hammers it: no duplicate in-flight requests for the same thing, and graceful, cooperative behavior the moment the server says "slow down."
 
 ## Clarifying Questions & Requirements
